@@ -1,0 +1,17 @@
+{
+  "name": "Ubuntu Dev Container",
+  "image": "mcr.microsoft.com/vscode/devcontainers/base:ubuntu",
+"customizations": {
+    "vscode": {
+        "settings": {
+            "terminal.integrated.shell.linux": "/bin/zsh"
+        },
+        "extensions": [
+            "ms-vscode.vscode-typescript-tslint-plugin",
+            "github.copilot-chat"
+        ]
+    }
+},
+  "forwardPorts": [3000, 8080],
+  "postCreateCommand": "echo 'Dev container created!'"
+}
