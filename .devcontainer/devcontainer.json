@@ -14,5 +14,9 @@
   "forwardPorts": [3000, 8080],
   "postCreateCommand": "git config --global --add safe.directory ${containerWorkspaceFolder} && source .devcontainer/aliases.sh",
   "containerUser": "vscode",
-  "remoteUser": "vscode"
+  "remoteUser": "vscode",
+  "features": {
+    "ghcr.io/devcontainers-contrib/features/checkov": "latest",
+    "ghcr.io/devcontainers-contrib/features/pre-commit": "latest"
+  }
 }
