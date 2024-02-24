@@ -12,7 +12,7 @@
     }
 },
   "forwardPorts": [3000, 8080],
-  "postCreateCommand": "echo 'Dev container created!'",
+  "postCreateCommand": "git config --global --add safe.directory ${containerWorkspaceFolder} && chmod a+x .devcontainer/aliases.sh && bash .devcontainer/aliases.sh",
   "containerUser": "vscode",
   "remoteUser": "vscode"
 }
