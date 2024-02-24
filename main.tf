@@ -91,20 +91,20 @@ resource "azurerm_virtual_machine" "jump_box" {
       "sudo apt-get update",
       "sudo apt-get install -y docker.io"
     ]
-    
+
     connection {
-        type     = "ssh"
-        user     = "adminuser"
-        password = "P@ssw0rd1234!"
-        host     = azurerm_network_interface.server.private_ip_address
+      type     = "ssh"
+      user     = "adminuser"
+      password = "P@ssw0rd1234!"
+      host     = azurerm_network_interface.server.private_ip_address
 
     }
   }
   provisioner "local-exec" {
-   command = "ssh-keyscan -H ${azurerm_network_interface.server.private_ip_address} >> ~/.ssh/known_hosts"
+    command = "ssh-keyscan -H ${azurerm_network_interface.server.private_ip_address} >> ~/.ssh/known_hosts"
   }
 
-  depends_on = [ azurerm_network_interface.server, azurerm_virtual_machine.server ]
+  depends_on = [azurerm_network_interface.server, azurerm_virtual_machine.server]
 }
 
 # Create a network interface for the server
@@ -175,20 +175,20 @@ resource "azurerm_network_interface" "bastion" {
 }
 
 resource "azurerm_subnet" "bastion" {
-  
-    name                 = "bastion-subnet"
-    resource_group_name  = azurerm_resource_group.example.name
-    virtual_network_name = azurerm_virtual_network.example.name
-    address_prefixes     = ["10.0.2.0/24"]
+
+  name                 = "bastion-subnet"
+  resource_group_name  = azurerm_resource_group.example.name
+  virtual_network_name = azurerm_virtual_network.example.name
+  address_prefixes     = ["10.0.2.0/24"]
 }
 
 resource "azurerm_bastion_host" "bastion" {
-    name                = "example-bastion"
-    location            = azurerm_resource_group.example.location
-    resource_group_name = azurerm_resource_group.example.name
-    ip_configuration {
-        name                 = "bastion-ipconfig"
-        subnet_id            = azurerm_subnet.bastion.id
-        public_ip_address_id = azurerm_public_ip.bastion.id
-    }
+  name                = "example-bastion"
+  location            = azurerm_resource_group.example.location
+  resource_group_name = azurerm_resource_group.example.name
+  ip_configuration {
+    name                 = "bastion-ipconfig"
+    subnet_id            = azurerm_subnet.bastion.id
+    public_ip_address_id = azurerm_public_ip.bastion.id
+  }
 }

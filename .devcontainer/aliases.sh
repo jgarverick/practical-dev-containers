@@ -6,3 +6,6 @@ alias gcm='git commit -m'
 alias ga2='git add .'
 alias gref='git reflog'
 alias gdf='git diff'
+
+# Creating aliases for pre-commit
+alias pcra='pre-commit run --all-files'

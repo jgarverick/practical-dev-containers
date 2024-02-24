@@ -7,16 +7,19 @@
             "terminal.integrated.shell.linux": "/bin/zsh"
         },
         "extensions": [
-            "github.copilot-chat"
+          "github.copilot-chat",
+          "ms-azuretools.vscode-docker",
+          "ms-kubernetes-tools.vscode-aks-tools"
         ]
     }
 },
   "forwardPorts": [3000, 8080],
-  "postCreateCommand": "git config --global --add safe.directory ${containerWorkspaceFolder} && source ./.devcontainer/aliases.sh",
+  "postCreateCommand": "git config --global --add safe.directory ${containerWorkspaceFolder} && ./.devcontainer/post-create.sh",
   "containerUser": "vscode",
   "remoteUser": "vscode",
   "features": {
-    "ghcr.io/devcontainers-contrib/features/checkov": "latest",
-    "ghcr.io/devcontainers-contrib/features/pre-commit": "latest"
+    "ghcr.io/devcontainers/features/docker-in-docker": {},
+    "ghcr.io/devcontainers/features/terraform": {},
+    "ghcr.io/devcontainers-contrib/features/terraform-docs": {}
   }
 }
