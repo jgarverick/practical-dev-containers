@@ -20,6 +20,7 @@
   "features": {
     "ghcr.io/devcontainers/features/docker-in-docker": {},
     "ghcr.io/devcontainers/features/terraform": {},
-    "ghcr.io/devcontainers-contrib/features/terraform-docs": {}
+    "ghcr.io/devcontainers-contrib/features/terraform-docs": {},
+    "ghcr.io/devcontainers/features/azure-cli": {}
   }
 }
